@@ -9,11 +9,12 @@
         background-color: lightblue;
     }
     span {
-        font-family: "menlo";
+        font-size: 8pt;
+        font-family: "Menlo";
     }
     h1 {
         transition: color 0.5s ease;
-        font: "wingdings";
+        font: "Fira Code, Menlo";
         font-size: 220px;
         color: blueviolet;
         margin-top: 180px;
@@ -30,6 +31,11 @@
         text-align:center;
         vertical-align:middle;
     }
+    .corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
     </style>
 </head>
 <body id="home">
@@ -37,52 +43,14 @@
         <tr>
             <td>
                 <h1>Word</h1>
-                <span id="color"></span>
-                <span id="background"></span>
+                <div class="corner">
+                    <span id="color"></span>
+                    <span id="background"></span>
+                </div>
             </td>
         </tr>
     </table>
-    <script>
-        (function(document) {
-            'use strict';
-            // not used
-            function toColor(text) {
-                var color = '';
-                var i = 0;
-                do {
-                    color += text.charCodeAt(i).toString(16);
-                    i = (i + 1) % text.length;
-                }
-                while (color.length < 6);
-                return color;
-            }
-
-            function randomColor() {
-                return '#'+Math.floor(Math.random()*16777215).toString(16);
-            }
-
-            function setContent(key) {
-                var color = randomColor();
-                var background = randomColor();
-                var char = String.fromCharCode(key.keyCode);
-                var el = document.querySelector('h1');
-                var content = el.textContent;
-                if (content.length > 5) {
-                    content = content.slice(1, content.length - 5);
-                    content += char;
-                }
-                else {
-                    content += char;
-                }
-                el.textContent = content;
-                el.style.color = color;
-                document.body.style.background = background;
-                document.querySelector('#color').textContent = color;
-                document.querySelector('#background').textContent = background;
-            }
-
-            document.onkeyup = setContent;
-        }(document));
+    <script src="/static/index.js">
     </script>
 </body>
 </html>

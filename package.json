@@ -5,7 +5,7 @@
   "main": "colorchanger.js",
   "scripts": {
     "start": "node colorchanger.js",
-    "lint": "./node_modules/.bin/eslint *.js"
+    "lint": "./node_modules/.bin/eslint *.js && ./node_modules/.bin/eslint content/*.js"
   },
   "repository": {
     "type": "git",
