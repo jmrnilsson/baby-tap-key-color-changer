@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Baby tap key color changer</title>
+    <style>
+    body {
+        transition: background-color 0.5s ease;
+        background-color: lightblue;
+    }
+    span {
+        font-family: "menlo";
+    }
+    h1 {
+        transition: color 0.5s ease;
+        font: "wingdings";
+        font-size: 220px;
+        color: blueviolet;
+        margin-top: 180px;
+        margin-left: 40px;
+    }
+    table{
+        border: 1px;
+        width:100%;
+        height: 100%;
+        align-items: center;
+        align-content: center;
+    }
+    td {
+        text-align:center;
+        vertical-align:middle;
+    }
+    </style>
+</head>
+<body id="home">
+    <table>
+        <tr>
+            <td>
+                <h1>Word</h1>
+                <span id="color"></span>
+                <span id="background"></span>
+            </td>
+        </tr>
+    </table>
+    <script>
+        (function(document) {
+            'use strict';
+            // not used
+            function toColor(text) {
+                var color = '';
+                var i = 0;
+                do {
+                    color += text.charCodeAt(i).toString(16);
+                    i = (i + 1) % text.length;
+                }
+                while (color.length < 6);
+                return color;
+            }
+
+            function randomColor() {
+                return '#'+Math.floor(Math.random()*16777215).toString(16);
+            }
+
+            function setContent(key) {
+                var color = randomColor();
+                var background = randomColor();
+                var char = String.fromCharCode(key.keyCode);
+                var el = document.querySelector('h1');
+                var content = el.textContent;
+                if (content.length > 5) {
+                    content = content.slice(1, content.length - 5);
+                    content += char;
+                }
+                else {
+                    content += char;
+                }
+                el.textContent = content;
+                el.style.color = color;
+                document.body.style.background = background;
+                document.querySelector('#color').textContent = color;
+                document.querySelector('#background').textContent = background;
+            }
+
+            document.onkeyup = setContent;
+        }(document));
+    </script>
+</body>
+</html>

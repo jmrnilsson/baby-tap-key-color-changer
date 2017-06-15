@@ -1,0 +1,35 @@
+{
+  "name": "baby-tap-key-color-changer",
+  "version": "0.1.0",
+  "description": "A tiny web page that changes color and show characters when tapping the keys",
+  "main": "colorchanger.js",
+  "scripts": {
+    "start": "node colorchanger.js",
+    "lint": "./node_modules/.bin/eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmrnilsson/baby-tap-key-color-changer.git"
+  },
+  "keywords": [
+    "baby",
+    "edutainment",
+    "learning",
+    "color",
+    "sight",
+    "observing",
+    "interaction"
+  ],
+  "author": "jmrnilsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmrnilsson/baby-tap-key-color-changer/issues"
+  },
+  "homepage": "https://github.com/jmrnilsson/baby-tap-key-color-changer#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0"
+  }
+}
