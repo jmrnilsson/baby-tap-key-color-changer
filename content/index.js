@@ -5,10 +5,12 @@
         return '#'+Math.floor(Math.random()*16777215).toString(16);
     }
 
-    function setContent(key) {
+    function setContent(event) {
+        var e = event || window.event;
+        var charCode = e.which || e.keyCode;
+        var char = String.fromCharCode(charCode);
         var color = randomColor();
         var background = randomColor();
-        var char = String.fromCharCode(key.keyCode);
         var el = document.querySelector('h1');
         var content = el.textContent;
         if (content.length > 5) {
@@ -25,5 +27,5 @@
         document.querySelector('#background').textContent = background;
     }
 
-    document.onkeyup = setContent;
+    document.onkeypress = setContent;
 }(document));
