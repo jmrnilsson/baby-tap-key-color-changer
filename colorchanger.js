@@ -14,7 +14,11 @@ app.get('/', function (req, res) {
 
 app.get('/lights', function (req, res) {
 	res.json(discolights);
-})	
+});
+
+app.get('/time', function (req, res) {
+	res.json(new Date().getTime());
+});
 
 console.log('generating disco lights sequences');
 
